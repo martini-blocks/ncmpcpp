@@ -337,15 +337,19 @@ void Menu<ItemT>::clear()
 }
 
 template <typename ItemT>
-void Menu<ItemT>::highlight(size_t pos)
-{
-	assert(pos < m_items->size());
-	m_highlight = pos;
-	size_t half_height = m_height/2;
-	if (pos < half_height)
-		m_beginning = 0;
-	else
-		m_beginning = pos-half_height;
+void Menu<ItemT>::highlight(size_t pos) {
+    if (pos >= m_items->size()) {
+        // Handle out-of-bounds case gracefully
+        m_highlight = 0;
+        return;
+    }
+    assert(pos < m_items->size());
+    m_highlight = pos;
+    size_t half_height = m_height/2;
+    if (pos < half_height)
+        m_beginning = 0;
+    else
+        m_beginning = pos-half_height;
 }
 
 template <typename ItemT>
