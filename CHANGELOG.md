@@ -1,3 +1,6 @@
+# ncmpcpp 
+* Changed menu_impl.h to fix a race condition with ashuffle
+
 # ncmpcpp-0.10.2 (2025-??-??)
 * Update lyrics fetchers.
 * Add support for hexadecimal HTML escape codes.
